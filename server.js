@@ -9,3 +9,15 @@ app.listen(port,()=>{
 app.get("/",(req,res)=>{
     res.send("Application Working Successfully");
 })
+
+app.post("/postMethod",(req,res)=>{
+    res.send("Post Method is Working");
+})
+
+app.put("/putMethod",(req,res)=>{
+    res.send("Put Method is Working");
+})
+
+app.delete("/deleteMethod",(req,res)=>{
+    res.send("Delete Method is Working");
+})
