@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.json());
 
 app.listen(port,()=>{
     console.log("This program is running at localhost:"+port);
@@ -20,4 +23,19 @@ app.put("/putMethod",(req,res)=>{
 
 app.delete("/deleteMethod",(req,res)=>{
     res.send("Delete Method is Working");
+})
+
+app.post("/dataBody",(req,res)=>{
+    let data = req.body;
+    res.send(data);
+})
+
+app.post("/dataParams/:name/:age",(req,res)=>{
+    let data = req.params;
+    res.send(data);
+})
+
+app.post("/dataQuery",(req,res)=>{
+    let data = req.query;
+    res.send(data);
 })
