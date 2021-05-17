@@ -4,6 +4,7 @@ const port = 3000;
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
+app.set("view engine","ejs");
 
 app.listen(port,()=>{
     console.log("This program is running at localhost:"+port);
@@ -38,4 +39,12 @@ app.post("/dataParams/:name/:age",(req,res)=>{
 app.post("/dataQuery",(req,res)=>{
     let data = req.query;
     res.send(data);
+}) 
+
+app.get("/sample",(req,res)=>{
+    res.render("sample");
+})
+
+app.get("/dynamicdata",(req,res)=>{
+    res.render("dynamicdata",{message:"Hello Ejs"});
 })
