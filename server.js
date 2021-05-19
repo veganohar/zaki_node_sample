@@ -4,6 +4,7 @@ const port = 3000;
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 app.set("view engine","ejs");
 
 app.listen(port,()=>{
@@ -48,3 +49,13 @@ app.get("/sample",(req,res)=>{
 app.get("/dynamicdata",(req,res)=>{
     res.render("dynamicdata",{message:"Hello Ejs"});
 })
+
+app.get("/form",(req,res)=>{
+    res.render("form");
+})
+
+app.post("/response",(req,res)=>{
+    console.log(req.body); 
+
+    res.render("response",req.body);
+})  
