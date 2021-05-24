@@ -15,47 +15,5 @@ app.get("/",(req,res)=>{
     res.send("Application Working Successfully");
 })
 
-app.post("/postMethod",(req,res)=>{
-    res.send("Post Method is Working");
-})
 
-app.put("/putMethod",(req,res)=>{
-    res.send("Put Method is Working");
-})
-
-app.delete("/deleteMethod",(req,res)=>{
-    res.send("Delete Method is Working");
-})
-
-app.post("/dataBody",(req,res)=>{
-    let data = req.body;
-    res.send(data);
-})
-
-app.post("/dataParams/:name/:age",(req,res)=>{
-    let data = req.params;
-    res.send(data);
-})
-
-app.post("/dataQuery",(req,res)=>{
-    let data = req.query;
-    res.send(data);
-}) 
-
-app.get("/sample",(req,res)=>{
-    res.render("sample");
-})
-
-app.get("/dynamicdata",(req,res)=>{
-    res.render("dynamicdata",{message:"Hello Ejs"});
-})
-
-app.get("/form",(req,res)=>{
-    res.render("form");
-})
-
-app.post("/response",(req,res)=>{
-    console.log(req.body); 
-
-    res.render("response",req.body);
-})  
+require("./app/routes/test.route")(app);
